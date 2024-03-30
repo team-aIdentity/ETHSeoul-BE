@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, UploadedFile } from '@nestjs/common';
 import { UserService } from './user.service';
 
 @Controller('user')
@@ -13,8 +13,8 @@ export class UserController {
 
   // 회원가입
   @Post('signup')
-  signup(@Body('user_id') user_id: string, @Body('user_pw') user_pw: string) {
-    return this.userService.registerUser(user_id, user_pw);
+  signup(@Body('user_id') user_id: string, @Body('user_pw') user_pw: string, @UploadedFile() profile_img: Express.Multer.File) {
+    return this.userService.registerUser(user_id, user_pw, profile_img);
   }
 
   // 로그인
