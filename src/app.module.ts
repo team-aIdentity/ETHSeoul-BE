@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { MulterModule } from '@nestjs/platform-express';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 
@@ -8,9 +9,14 @@ import { UserModule } from './user/user.module';
 import { UserRepository } from './user/user.repo';
 import { UserService } from './user/user.service';
 import { UserController } from './user/user.con';
+import { TicketController } from './ticket/ticket.controller';
+import { TicketService } from './ticket/ticket.service';
 
 @Module({
   imports: [
+    MulterModule.register({
+      dest: './uploads',
+    }),
     ConfigModule.forRoot({
       isGlobal : true
     }),
@@ -27,7 +33,7 @@ import { UserController } from './user/user.con';
     }),
     User, UserModule
   ],
-  controllers: [UserController],
-  providers: [UserRepository, UserService],
+  controllers: [UserController, TicketController],
+  providers: [UserRepository, UserService, TicketService],
 })
 export class AppModule {}
