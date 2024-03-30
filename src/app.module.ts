@@ -13,9 +13,7 @@ import { Ticket } from "./ticket/ticket.entity";
 import { TicketModule } from "./ticket/ticket.module";
 import { TBA } from './tba/tba.entity';
 import { TBAModule } from './tba/tba.module';
-import { TBAController } from './tba/tba.con';
-import { TBARepository } from './tba/tba.repo';
-import { TBAService } from './tba/tba.service';
+import { TicketRepository } from "./ticket/ticket.repo";
 
 @Module({
   imports: [
@@ -33,13 +31,13 @@ import { TBAService } from './tba/tba.service';
       password : process.env.DB_PASSWORD,
       database : process.env.DB_NAME,
       models : [User, TBA, Ticket],
-      synchronize : true, // 처음 table 생성한 뒤에는 false로 변경
+      synchronize : false, // 처음 table 생성한 뒤에는 false로 변경
       autoLoadModels: true,
     }),
     User, UserModule,
     TBA, TBAModule, TicketModule
   ],
-  controllers: [UserController, TBAController, TicketController],
-  providers: [UserRepository, UserService, TBARepository, TBAService, TicketService],
+  controllers: [UserController, TicketController],
+  providers: [UserRepository, UserService, TicketService, TicketRepository],
 })
 export class AppModule {}

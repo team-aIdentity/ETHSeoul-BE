@@ -7,7 +7,6 @@ import {
 } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { create } from "ipfs-http-client";
-import axios from "axios";
 import Web3 from "web3"; // Import web3.js
 import { TicketRepository } from "./ticket.repo";
 

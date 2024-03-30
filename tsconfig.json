@@ -17,6 +17,7 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "resolveJsonModule": true // json 모듈 사용
+    "resolveJsonModule": true, // json 모듈 사용
+    "moduleResolution":"Node"
   }
 }
