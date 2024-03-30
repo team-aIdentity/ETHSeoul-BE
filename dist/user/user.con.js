@@ -22,8 +22,8 @@ let UserController = class UserController {
     getAllUsers() {
         return this.userService.findAllUsers();
     }
-    signup(user_id, user_pw) {
-        return this.userService.registerUser(user_id, user_pw);
+    signup(user_id, user_pw, profile_img) {
+        return this.userService.registerUser(user_id, user_pw, profile_img);
     }
     login(user_id, user_pw) {
         return this.userService.loginUser(user_id, user_pw);
@@ -40,8 +40,9 @@ __decorate([
     (0, common_1.Post)('signup'),
     __param(0, (0, common_1.Body)('user_id')),
     __param(1, (0, common_1.Body)('user_pw')),
+    __param(2, (0, common_1.UploadedFile)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:paramtypes", [String, String, Object]),
     __metadata("design:returntype", void 0)
 ], UserController.prototype, "signup", null);
 __decorate([

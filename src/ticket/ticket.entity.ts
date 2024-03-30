@@ -26,7 +26,7 @@ export class Ticket extends Model {
   @Column({ type: DataType.STRING(50), allowNull: false })
   ticket_name: string;
 
-  @Column({ type: DataType.NUMBER, allowNull: false })
+  @Column({ type: DataType.INTEGER, allowNull: false })
   ticket_amount: number;
 
   @Column({ type: DataType.STRING, allowNull: false })
